@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>compare between my results and nmap results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            /* direction: rtl; */
+            background-color: #FEF9E1;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #A31D1D;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .result-container {
+            margin-top: 30px;
+            width: 700px;
+            background-color: #E5D0AC;
+            padding: 20px;
+            border-radius: 10px;
+            width: calc(90% - 1em);
+            margin: 2em;
+        }
+
+        .result-container * {
+            color: #6D2323;
+        }
+        
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>compare between my results and nmap results</h1>
+</header>
+
+<div class="container">
+    <div class="result-container">
+        <h1>my results:</h1>
+        <p style="margin-top: 20px;">[74.125.133.108 587 220 smtp.gmail.com ESMTP 5b1f17b1804b1-438b31af70dsm44891025e9.18 - gsmtp<br>
+            250-smtp.gmail.com at your service, [37.137.21.177]<br>
+           250-SIZE 35882577<br>
+           250-8BITMIME<br>
+           250-STARTTLS<br>
+           250-ENHANCEDSTATUSCODES<br>
+           250-PIPELINING<br>
+           250-CHUNKING<br>
+           250 SMTPUTF8<br>
+           ]<br><br>
+           [74.125.133.109 587 220 smtp.gmail.com ESMTP 5b1f17b1804b1-438b31a2f1csm44532815e9.16 - gsmtp<br>
+            250-smtp.gmail.com at your service, [37.137.21.177]<br>
+           250-SIZE 35882577<br>
+           250-8BITMIME<br>
+           250-STARTTLS<br>
+           250-ENHANCEDSTATUSCODES<br>
+           250-PIPELINING<br>
+           250-CHUNKING<br>
+           250 SMTPUTF8<br>
+           ]</p>
+    </div>
+    <div class="result-container">
+        <h1>Nmap results:</h1>
+        <p style="margin-top: 20px;">nmap --script smtp-commands.nse -p 25,465,587 -Pn smtp.gmail.com<br>
+            Starting Nmap 7.92 ( https://nmap.org ) at 2025-01-23 06:05 +0330<br>
+            Nmap scan report for smtp.gmail.com (108.177.127.109)<br>
+            Host is up (0.19s latency).<br>
+            Other addresses for smtp.gmail.com (not scanned): 2a00:1450:400c:c06::6d<br>
+            rDNS record for 108.177.127.109: el-in-f109.1e100.net<br>
+            <br>
+            PORT    STATE    SERVICE<br>
+            25/tcp  filtered smtp<br>
+            465/tcp open     smtps<br>
+            | smtp-commands: smtp.gmail.com at your service,<br> [37.137.21.177], SIZE 35882577, 8BITMIME, AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH,<br> ENHANCEDSTATUSCODES, PIPELINING, CHUNKING, SMTPUTF8
+            |_ 2.0.0 https://www.google.com/search?btnI&q=RFC+5321 a640c23a62f3a-ab384ce0c99sm980393766b.41 - gsmtp<br>
+            587/tcp open     submission<br>
+            | smtp-commands: smtp.gmail.com at your service, <br>[37.137.21.177], SIZE 35882577, 8BITMIME, STARTTLS, ENHANCEDSTATUSCODES, PIPELINING, CHUNKING, SMTPUTF8<br>
+            |_ 2.0.0 https://www.google.com/search?btnI&q=RFC+5321 a640c23a62f3a-ab384c607b9sm989140766b.27 - gsmtp<br>
+            <br>
+            Nmap done: 1 IP address (1 host up) scanned in 4.32 seconds</p>
+    </div>
+</div>
+
+</body>
+</html>
