@@ -52,21 +52,23 @@ This Golang application performs the following tasks:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/username/network-scanner.git
-   cd network-scanner
+   git clone https://github.com/mojtabahadei81/NetSentinel.git
+   cd NetSentinel
+
 Build the Application:
 
-Compile the application using the following command:
+2. **Compile the application using the following command:**
 
-bash
-go build -o network_scanner main.go
-Run the Application:
+   ```bash
+   go build -o network_scanner main.go
+   Run the Application:
 
-Execute the compiled binary:
+3. **Execute the compiled binary:**
 
-bash
-./network_scanner
-Usage
+   ```bash
+   ./network_scanner
+
+## Usage
 Configuring the IP Range:
 
 Modify the startIP and endIP variables in main.go with your desired IP range.
@@ -81,7 +83,7 @@ The program will print the list of open ports along with the banners grabbed fro
 
 The application uses multiple workers running concurrently to rapidly scan and gather data from the target IP addresses.
 
-Code Structure and Architecture
+## Code Structure and Architecture
 Project Layout:
 
 main.go: Contains the core logic for scanning IP ranges and grabbing banners.
@@ -101,19 +103,17 @@ Performance Evaluation:
 
 The tool can be tested on various IP ranges (from a few addresses to large blocks) to measure its performance in terms of speed and resource utilization.
 
-Nmap Comparison:
+## Nmap Comparison:
 
 You can run Nmap on the same IP range and compare the open port results and banner data. Detailed testing reports can be prepared outlining any discrepancies or performance enhancements.
 
-Future Enhancements
+## Future Enhancements
 Potential areas for additional features and improvements include:
 
 UDP Port Scanning: Extend scanning to include UDP ports.
 Dynamic Configuration: Introduce command-line options or configuration files for easier customization of IP ranges and port lists.
 Improved Error Handling: Enhance error messages and logging for better debugging.
 User Interface: Develop a GUI to allow non-technical users to interact with the scanner.
-License
-This project is licensed under the MIT License. For more details, refer to the LICENSE file.
 
 Conclusion
 This network scanner provides a robust solution for identifying open ports and retrieving banners from SMTP and FTP services. The use of Golang’s concurrency features ensures high performance, making it an excellent tool for network security assessments and learning about network scanning and multi-threaded programming.
